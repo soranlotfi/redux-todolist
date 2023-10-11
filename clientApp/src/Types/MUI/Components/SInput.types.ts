@@ -9,3 +9,7 @@ export interface ISInput {
     height?: CSS.Property.Height | number;
     value?: string
 }
+
+export interface ISInputRoot {
+    customstats: ISInput
+}

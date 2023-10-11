@@ -1,5 +1,5 @@
 import './App.css'
-import React, {ReactNode, useEffect} from "react";
+import React, {useEffect} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {RoutesInterface} from "./Types/App/routes.type.ts";
 import {CssBaseline, ThemeProvider} from "@mui/material";

@@ -1,12 +1,15 @@
 import React, {ReactNode} from "react";
+import SBox from "../../SBox/Index.tsx";
+import FullWidthTabs from "../../../Pages/MainPage";
 
 interface pageLayOutProps{
     children:ReactNode
 }
 const pageLayOut:React.FC<pageLayOutProps>=({children})=>{
-    return <div className={"main-page-container"}>
+    return <SBox bgColor={"red.main"} width={"100vw"} height={"100vh"}>
+        <FullWidthTabs/>
         {children}
-    </div>
+    </SBox>
 }
 
 export default pageLayOut

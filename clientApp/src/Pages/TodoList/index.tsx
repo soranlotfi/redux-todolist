@@ -1,11 +1,11 @@
 import React from "react";
-import PageLayOut from "../../Components/LayOutContainers/PageLayOut";
+import {Grid} from "@mui/material";
 
 const TodoList : React.FC = ()=>{
     return(
-        <PageLayOut>
-            <h1>Hello World</h1>
-        </PageLayOut>
+        <Grid container xs={12} p={"2rem"}>
+            salam bar hamagi
+        </Grid>
     )
 }
 

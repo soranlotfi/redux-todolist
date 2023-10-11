@@ -1,5 +1,5 @@
 import {forwardRef} from "react";
-import MInputRoot from "./MInputRoot.ts";
+import SInputRoot from "./SInputRoot.ts";
 import {ISInput} from "../../Types/MUI/Components/SInput.types.ts";
 
 
@@ -15,7 +15,7 @@ const SInput =
             placeholder
         }
         , ref) => {
-        return <MInputRoot
+        return <SInputRoot
             fullWidth={fullWidth}
             placeholder={placeholder ?? ""}
             ref={ref}
