@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import TodoList from "../TodoList";
 import SBox from "../../Components/SBox/Index.tsx";
+import SwipeableViews from "react-swipeable-views";
 
 interface TabPanelProps {
     children?: React.ReactNode;

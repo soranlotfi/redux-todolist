@@ -7,6 +7,8 @@ import themeRtl from "./Assets/theme/themeRtl.ts";
 import PageLayOut from "./Components/LayOutContainers/PageLayOut";
 import AppRoutes from "./routes.tsx";
 import MainPage from "./Pages/MainPage";
+import AppBar from "./Components/LayOutContainers/HighestLayOut/AppBar";
+import AppNavBar from "./Components/LayOutContainers/HighestLayOut/AppBar";
 
 function App() {
     const pathName = window.location.pathname
@@ -32,14 +34,15 @@ function App() {
         <>
             <ThemeProvider theme={themeRtl}>
                 <CssBaseline/>
-                <BrowserRouter>
+               {/* <BrowserRouter>
                     <PageLayOut>
                         <Routes>
                             {getRoutes(AppRoutes)}
                             <Route path={"*"} element={<MainPage/>}/>
                         </Routes>
                     </PageLayOut>
-                </BrowserRouter>
+                </BrowserRouter>*/}
+                <AppNavBar/>
             </ThemeProvider>
         </>
     )

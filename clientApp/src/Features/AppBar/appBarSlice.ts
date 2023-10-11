@@ -1,21 +1,22 @@
-import {createSlice,PayloadAction} from "@reduxjs/toolkit"
- interface AppbarState{
-    value:number
- }
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
-const initialState:AppbarState={
-    value:0
+interface appBarState {
+    value: number
 }
 
-const AppbarSlice = createSlice({
-    name:"appBar",
+const initialState: appBarState = {
+    value: 0
+}
+
+const appBarSlice = createSlice({
+    name: "appBar",
     initialState,
-    reducers:{
-        setValue(state , action:PayloadAction<number>){
-            state = action.payload
+    reducers: {
+        setTabValue(state, action: PayloadAction<number>) {
+            state.value = action.payload
         }
     }
 })
 
-export const {setValue} = AppbarSlice.actions
-export default  AppbarSlice.reducer
+export const {setTabValue} = appBarSlice.actions
+export default appBarSlice.reducer
