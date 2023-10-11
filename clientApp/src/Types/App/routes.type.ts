@@ -4,6 +4,6 @@ export interface RoutesInterface {
     key: string;
     route: string;
     TabId?:number,
-    component?: React.ReactNode;
+    component?: React.ReactNode ;
 
 }

@@ -1,7 +1,7 @@
-import {RoutesInterface} from "./Types/App/Routes";
+import {RoutesInterface} from "./Types/App/routes.type.ts";
 import MainPage from "./Pages/MainPage";
 import TodoList from "./Pages/TodoList";
-const Routes:RoutesInterface[] = [
+const AppRoutes:RoutesInterface[] = [
     {
         TabId:0,
         type: 'page',
@@ -20,4 +20,4 @@ const Routes:RoutesInterface[] = [
     },
 ]
 
-export default Routes;
+export default AppRoutes;
