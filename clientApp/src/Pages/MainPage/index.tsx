@@ -6,12 +6,14 @@ import TodolistImage from "../../Assets/images/todolist.jpg"
 
 const HomePage: React.FC = () => {
     return (
-
-            <SBox width={"100%"} height={"100%"} sx={{padding:"2rem" , display:"flex" , justifyContent:"center" , flexDirection:"column"}}>
-                <Grid container xs={12}  alignItems={"center"} justifyContent={"center"}>
+        <PageLayOut>
+            <SBox width={"100%"} height={"100%"}
+                  sx={{padding: "2rem", display: "flex", justifyContent: "center", flexDirection: "column"}}>
+                <Grid container xs={12} alignItems={"center"} justifyContent={"center"}>
                     <Grid item container flexDirection={"column"} spacing={"1rem"} xs={6} alignItems={"center"}>
                         <Typography variant={"h1"} fontWeight={"bold"}> A Simple TodoList App</Typography>
-                        <Typography variant={"h3"} fontWeight={"bold"}> This App Helps you to manage your works and habbits </Typography>
+                        <Typography variant={"h3"} fontWeight={"bold"}> This App Helps you to manage your works and
+                            habbits </Typography>
                         <Typography variant={"h4"} fontWeight={"bold"}> Better life with todoList</Typography>
                     </Grid>
                     <Grid item xs={6}>
@@ -19,6 +21,7 @@ const HomePage: React.FC = () => {
                     </Grid>
                 </Grid>
             </SBox>
+        </PageLayOut>
 
     )
 }

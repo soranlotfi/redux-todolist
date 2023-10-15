@@ -214,18 +214,6 @@ declare module '@mui/material/styles' {
 
 }
 declare module '@mui/material/styles/createTypography' {
-    interface FontStyle {
-        fontWeightLighter: number
-        d1: any
-        d2: any
-        d3: any
-        d4: any
-        d5: any
-        d6: any
-        size: any
-        lineHeight: any
-
-    }
 
 }
 

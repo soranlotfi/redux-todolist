@@ -13,8 +13,8 @@ interface HighLayOutProps {
 const HighLayout: React.FC<HighLayOutProps> = ({children}) => {
     return <SBox width={"100vw"} height={"100vh"} sx={{display:"flex" , flexDirection:"column" , justifyContent:"space-between"}}>
             {/*  Navbar*/}
-            <Grid item  container p={"1rem"} >
-                <Grid item xs={8}>
+            <Grid item  container border={"1px solid  #000"} p={"1rem"} >
+                <Grid item xs={8} >
                     <MainNavbar/>
                 </Grid>
                 <Grid item xs={4} textAlign={"end"}>

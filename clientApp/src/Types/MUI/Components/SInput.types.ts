@@ -1,4 +1,5 @@
 import * as CSS from "csstype";
+import {ChangeEventHandler} from "react";
 
 export interface ISInput {
     fullWidth?: boolean;
@@ -8,6 +9,10 @@ export interface ISInput {
     padding?: CSS.Property.Padding | number;
     height?: CSS.Property.Height | number;
     value?: string
+    name?: string
+    id?: string
+    label?: string
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | undefined>
 }
 
 export interface ISInputRoot {

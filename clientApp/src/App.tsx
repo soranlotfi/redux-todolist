@@ -4,15 +4,18 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {RoutesInterface} from "./Types/App/routes.type.ts";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import themeRtl from "./Assets/theme/themeRtl.ts";
-import PageLayOut from "./Components/LayOutContainers/PageLayOut";
 import AppRoutes from "./routes.tsx";
 import HomePage from "./Pages/MainPage";
-import HighestLayOut from "./Components/LayOutContainers/HighestLayOut";
 import HighLayout from "./Components/LayOutContainers/HighestLayOut";
+import {setTabValue} from "./Features/AppBar/appBarSlice.ts";
+import {useAppDispatch} from "./App/hooks.ts";
 
 function App() {
+    const dispatch = useAppDispatch()
     const pathName = window.location.pathname
     useEffect(() => {
+        const tabValue: number | undefined = AppRoutes.find(route => route.route === pathName)?.TabId
+        dispatch(setTabValue(tabValue ?? 0))
         document.documentElement.scrollTop = 0;
         if (document.scrollingElement) {
             document.scrollingElement.scrollTop = 0;
@@ -36,11 +39,11 @@ function App() {
                 <CssBaseline/>
                 <BrowserRouter>
                     <HighLayout>
-                            <Routes>
-                                {getRoutes(AppRoutes)}
-                                <Route path={"*"} element={<HomePage/>}/>
-                            </Routes>
-                        </HighLayout>
+                        <Routes>
+                            {getRoutes(AppRoutes)}
+                            <Route path={"*"} element={<HomePage/>}/>
+                        </Routes>
+                    </HighLayout>
                 </BrowserRouter>
             </ThemeProvider>
         </>

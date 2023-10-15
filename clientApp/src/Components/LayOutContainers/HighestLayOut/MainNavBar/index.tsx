@@ -3,7 +3,6 @@ import {StyledTab, StyledTabs} from "./styles.ts";
 import {useAppDispatch, useAppSelector} from "../../../../App/hooks.ts";
 import {setTabValue} from "../../../../Features/AppBar/appBarSlice.ts";
 import AppRoutes from "../../../../routes.tsx";
-import {RoutesInterface} from "../../../../Types/App/routes.type.ts";
 import {useNavigate} from "react-router-dom";
 
 const MainNavbar: React.FC = () => {

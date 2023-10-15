@@ -9,6 +9,7 @@ const SInputRoot = styled(TextField)<ISInputRoot>(({customstats}) => {
         padding,
         height
     } = customstats
+    console.log(customstats)
     return {
         width,
         border,
