@@ -9,18 +9,19 @@ const SBox = forwardRef<HTMLDivElement,ISBox>((
         position,
         sx,
         bgColor,
-        children
+        children,
+        ...rest
     },ref
 )=>{
     return <SBoxRoot
         width={width}
         height={height}
-        backgroundColor={bgColor}
         ref={ref}
         sx={sx}
         customstats={{
             bgColor,
-            position
+            position,
+            ...rest
         }}
     >
         {children}

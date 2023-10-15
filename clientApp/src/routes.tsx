@@ -1,14 +1,14 @@
 import {RoutesInterface} from "./Types/App/routes.type.ts";
-import MainPage from "./Pages/MainPage";
 import TodoList from "./Pages/TodoList";
+import HomePage from "./Pages/MainPage";
 const AppRoutes:RoutesInterface[] = [
     {
         TabId:0,
         type: 'page',
-        name: 'AppIntroduce ',
-        key: 'introduce',
-        route: '/introduce',
-        component: <MainPage/>,
+        name: 'homepage ',
+        key: 'home',
+        route: '/homepage',
+        component: <HomePage/>,
     },
     {
         TabId:1,

@@ -5,6 +5,7 @@ import {ISTab} from "./STabRoot.ts";
 const STab= forwardRef<HTMLDivElement , ISTab > ((
     {
         color,
+        Amat,
         bgcolor,
         fontSize,
         label,
@@ -17,6 +18,7 @@ const STab= forwardRef<HTMLDivElement , ISTab > ((
         color,
         bgcolor,
         fontSize,
+        Amat,
         ...rest
     }}/>
 })
