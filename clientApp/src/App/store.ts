@@ -1,9 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
 import appBarSlice from "../Features/AppBar/appBarSlice.ts";
+import TodoSlice from "../Features/Todos/TodosSlice.ts";
 
 export const store = configureStore({
     reducer :{
-        appBar:appBarSlice
+        appBar:appBarSlice,
+        todos:TodoSlice
     }
 })
 
