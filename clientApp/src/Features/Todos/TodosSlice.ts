@@ -1,16 +1,16 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface TodoState {
-    name?: string,
-    type?: string,
-    description?: string
+    name: string,
+    type: string,
+    description: string
 }
 
 const initialState: TodoState[] = [
     {
-    name: "",
-    type: "",
-    description: "",
+    name: "hello",
+    type: "hi",
+    description: "by",
 }
 ]
 

@@ -4,7 +4,7 @@ import SButton from "../../../../Components/SButton";
 import React from "react";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
-import {useAppDispatch} from "../../../../App/hooks.ts";
+import {useAppDispatch, useAppSelector} from "../../../../App/hooks.ts";
 import {AddTodo} from "../../../../Features/Todos/TodosSlice.ts";
 
 interface FormValues {
@@ -31,6 +31,8 @@ const validationSchema = Yup.object().shape({
 
 const TodoForm: React.FC = () => {
     const dispatch=useAppDispatch()
+    const Values=useAppSelector(state => state)
+
     const handleSubmit = (values:FormValues)=>{
         dispatch(AddTodo(values))
     }
