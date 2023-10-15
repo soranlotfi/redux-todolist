@@ -7,7 +7,7 @@ interface pageLayOutProps {
 }
 
 const pageLayOut: React.FC<pageLayOutProps> = ({children}) => {
-    return <SBox width={"100%"} height={"91%"} bgColor={"blue"} >
+    return <SBox width={"100%"} height={"100%"} bgColor={"blue"} >
         {children}
     </SBox>
 }

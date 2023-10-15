@@ -1,17 +1,25 @@
 import * as React from 'react';
-import {Grid} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import PageLayOut from "../../Components/LayOutContainers/PageLayOut";
-import HighestLayOut from "../../Components/LayOutContainers/HighestLayOut";
-
+import SBox from "../../Components/SBox/Index.tsx";
+import TodolistImage from "../../Assets/images/todolist.jpg"
 
 const HomePage: React.FC = () => {
-    console.log("heloooooooooooo this is HomePage")
     return (
-        <PageLayOut>
-            <Grid item xs={12} p={"1rem"}>
-                سلام بر تو
-            </Grid>
-        </PageLayOut>
+
+            <SBox width={"100%"} height={"100%"} sx={{padding:"2rem" , display:"flex" , justifyContent:"center" , flexDirection:"column"}}>
+                <Grid container xs={12}  alignItems={"center"} justifyContent={"center"}>
+                    <Grid item container flexDirection={"column"} spacing={"1rem"} xs={6} alignItems={"center"}>
+                        <Typography variant={"h1"} fontWeight={"bold"}> A Simple TodoList App</Typography>
+                        <Typography variant={"h3"} fontWeight={"bold"}> This App Helps you to manage your works and habbits </Typography>
+                        <Typography variant={"h4"} fontWeight={"bold"}> Better life with todoList</Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <img src={TodolistImage} width={"100%"} height={"100%"} alt={"todolist"}/>
+                    </Grid>
+                </Grid>
+            </SBox>
+
     )
 }
 

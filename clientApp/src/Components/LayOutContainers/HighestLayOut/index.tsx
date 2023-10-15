@@ -1,10 +1,8 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import SBox from "../../SBox/Index.tsx";
 import {Grid, Typography} from "@mui/material";
 import MainNavbar from "./MainNavBar";
-import TodoList from "../../../Pages/TodoList";
 import iconsPack, {IconsPackInterface} from "../../../Data/staticDate.ts";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {SFontAwesome} from "./styles.ts";
 
 
@@ -13,10 +11,9 @@ interface HighLayOutProps {
 }
 
 const HighLayout: React.FC<HighLayOutProps> = ({children}) => {
-    return <SBox width={"100vw"} height={"100vh"}>
-        <Grid container alignItems={"start"} justifyContent={"space-between"} width={"100%"} height={"100%"}>
+    return <SBox width={"100vw"} height={"100vh"} sx={{display:"flex" , flexDirection:"column" , justifyContent:"space-between"}}>
             {/*  Navbar*/}
-            <Grid item xs={12} container p={"1rem"} border={"1px solid red"}>
+            <Grid item  container p={"1rem"} >
                 <Grid item xs={8}>
                     <MainNavbar/>
                 </Grid>
@@ -25,11 +22,11 @@ const HighLayout: React.FC<HighLayOutProps> = ({children}) => {
                 </Grid>
             </Grid>
             {/*body*/}
-            <Grid item container xs={12} border={"1px solid red"}>
+            <Grid item container xs={12}>
                 {children}
             </Grid>
             {/*    footer*/}
-            <Grid item container alignSelf={"end"} bgcolor={"purple.500"} p={"1rem"} xs={12} border={" 1px solid red"}>
+            <Grid item container  bgcolor={"purple.500"} p={"1rem"} >
                 <Grid item xs={12} p={"1rem"} textAlign={"center"}>
                     {
                         iconsPack.filter(icon => icon.type==="socialMedia").map((icon:IconsPackInterface,index:number) =>(
@@ -41,7 +38,6 @@ const HighLayout: React.FC<HighLayOutProps> = ({children}) => {
                     <Typography variant="h4" color={"white.main"} fontWeight={"bold"}>Designed by Gwizman</Typography>
                 </Grid>
             </Grid>
-        </Grid>
     </SBox>
 }
 
