@@ -1,7 +1,7 @@
 import {Grid} from "@mui/material";
 import SInput from "../../../../Components/Sinput";
 import SButton from "../../../../Components/SButton";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import {useAppDispatch, useAppSelector} from "../../../../App/hooks.ts";
@@ -38,11 +38,17 @@ const todo: TodoInterFace = {
 }
 
 const TodoForm: React.FC = () => {
-    const todos = useAppSelector(state => state.todos.todoList)
+    const todos:TodoInterFace[] = useAppSelector(state => state.todos.todoList)
     const dispatch = useAppDispatch()
+    const [edit,setEdit] = useState<boolean>(false)
 
     useEffect(() => {
-        todos.map(todo => todo.edit && formik.setValues(todo))
+        todos.map(todo=>{
+            if(todo.edit){
+                formik.setValues(todo)
+                setEdit(true)
+            }
+        })
     }, [todos])
 
     const handleSubmit = (values: FormValues) => {
@@ -51,7 +57,7 @@ const TodoForm: React.FC = () => {
             if (todo.edit) {
                 return {...todo, name: values.name, type: values.type, description: values.description, edit: false}
             }
-            return todo
+            return {...todo}
         })
         const todo: TodoInterFace = {
             name: values.name,
@@ -61,9 +67,11 @@ const TodoForm: React.FC = () => {
             edit: false,
             id: uuid
         }
-        if (editedTodos.length > 0) {
+        console.log(edit)
+        if (edit) {
             dispatch(EditTodo(editedTodos))
         } else {
+            console.log("adding")
             dispatch(AddTodo(todo))
         }
         formik.handleReset({})

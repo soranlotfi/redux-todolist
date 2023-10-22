@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {Grid} from "@mui/material";
+import {Checkbox, Grid} from "@mui/material";
 import SBox from "../../SBox/Index.tsx";
 
 interface pageLayOutProps {

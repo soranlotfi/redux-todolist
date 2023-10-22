@@ -10,26 +10,25 @@ const TodoSlice = createSlice({
     initialState,
     reducers: {
         AddTodo: (state, action: PayloadAction<TodoInterFace>) => {
-            return {
-                ...state,
-                todoList: [...state.todoList, action.payload],
+            return {...state, todoList: [...state.todoList, action.payload],
             };
         },
         HandleEdit: (state, action: PayloadAction<TodoInterFace[]>) => {
-            return {
-                ...state,
-                todoList: action.payload
-            }
+            return {...state, todoList: action.payload}
         },
         EditTodo: (state, action: PayloadAction<TodoInterFace[]>) => {
-            return {
-                ...state,
-                todoList: action.payload
-            }
+            return {...state, todoList: action.payload}
+        },
+        DeleteTodo: (state, action: PayloadAction<TodoInterFace[]>) => {
+            return {...state, todoList: action.payload}
+        },
+        ToggleTodo: (state, action: PayloadAction<TodoInterFace[]>) => {
+            console.log(action.payload)
+            return {...state, todoList: action.payload}
         }
 
     }
 })
 
-export const {AddTodo, HandleEdit,EditTodo} = TodoSlice.actions
+export const {AddTodo, HandleEdit,EditTodo,DeleteTodo,ToggleTodo} = TodoSlice.actions
 export default TodoSlice.reducer

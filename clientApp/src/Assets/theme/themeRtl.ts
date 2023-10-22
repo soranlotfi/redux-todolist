@@ -63,7 +63,7 @@ const themeRtl= createTheme({
         MuiOutlinedInput: {...inputOutlined},
         MuiTextField: {...textField},
         MuiAutocomplete: {...autocomplete},
-        MuiCheckbox: {...checkbox},
+        // MuiCheckbox: {...checkbox},
         MuiFormControlLabel: {...formControlLabel},
         MuiFormLabel: {...formLabel},
         MuiRadio: {...radio},
