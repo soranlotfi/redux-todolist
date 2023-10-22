@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
     return (
         <PageLayOut>
             <SBox width={"100%"} height={"100%"}
-                  sx={{padding: "2rem", display: "flex", justifyContent: "center", flexDirection: "column"}}>
+                  sx={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
                 <Grid container xs={12} alignItems={"center"} justifyContent={"center"}>
                     <Grid item container flexDirection={"column"} spacing={"1rem"} xs={6} alignItems={"center"}>
                         <Typography variant={"h1"} fontWeight={"bold"}> A Simple TodoList App</Typography>

@@ -16,20 +16,23 @@ const SButton = forwardRef<HTMLButtonElement, ISButton>(
             height,
             padding,
             margin,
+            onClick,
+            ...rest
         }, ref) => {
         return <SButtonRoot
             type={type}
             ref={ref}
+            onClick={onClick}
             customstats={
                 {
                     bgcolor,
                     fontSize,
-                    bgcolor,
                     color,
                     width,
                     height,
                     padding,
                     margin,
+                    ...rest
                 }
             }
         >

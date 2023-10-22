@@ -5,7 +5,7 @@ import todosSlice from "../Features/Todos/TodosSlice.ts";
 export const store = configureStore({
     reducer :{
         appBar:appBarSlice,
-        todo:todosSlice
+        todos:todosSlice
     }
 })
 

@@ -1,11 +1,13 @@
 import {Grid} from "@mui/material";
 import SInput from "../../../../Components/Sinput";
 import SButton from "../../../../Components/SButton";
-import React from "react";
+import React, {useEffect} from "react";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import {useAppDispatch, useAppSelector} from "../../../../App/hooks.ts";
-import {AddTodo} from "../../../../Features/Todos/TodosSlice.ts";
+import {AddTodo, EditTodo} from "../../../../Features/Todos/TodosSlice.ts";
+import {v4 as uuidv4} from 'uuid';
+import {TodoInterFace} from "../../../../Types/App/slices.type.ts";
 
 interface FormValues {
     name: string;
@@ -29,22 +31,53 @@ const validationSchema = Yup.object().shape({
         .required('Description is required'),
 });
 
-const TodoForm: React.FC = () => {
-    const dispatch=useAppDispatch()
-    const Values=useAppSelector(state => state)
+const todo: TodoInterFace = {
+    name: "hello world",
+    type: "hello habiby",
+    description: "lasjdasd"
+}
 
-    const handleSubmit = (values:FormValues)=>{
-        dispatch(AddTodo(values))
+const TodoForm: React.FC = () => {
+    const todos = useAppSelector(state => state.todos.todoList)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        todos.map(todo => todo.edit && formik.setValues(todo))
+    }, [todos])
+
+    const handleSubmit = (values: FormValues) => {
+        const uuid = uuidv4()
+        const editedTodos: TodoInterFace[] = todos.map(todo => {
+            if (todo.edit) {
+                return {...todo, name: values.name, type: values.type, description: values.description, edit: false}
+            }
+            return todo
+        })
+        const todo: TodoInterFace = {
+            name: values.name,
+            type: values.type,
+            description: values.description,
+            completed: false,
+            edit: false,
+            id: uuid
+        }
+        if (editedTodos.length > 0) {
+            dispatch(EditTodo(editedTodos))
+        } else {
+            dispatch(AddTodo(todo))
+        }
+        formik.handleReset({})
     }
 
-    const formik =useFormik({
-        initialValues:initialValues,
-        validationSchema:validationSchema,
-        onSubmit:handleSubmit,
+    const formik = useFormik({
+        initialValues: initialValues,
+        validationSchema: validationSchema,
+        onSubmit: handleSubmit,
     })
+
     return (
         <Grid item container role={"form"} onSubmit={formik.handleSubmit} component={"form"} justifyContent={"center"}
-              alignItems={"center"} rowSpacing={"2rem"} p={"2rem"}>
+              alignItems={"center"} rowSpacing={3} p={"2rem"}>
             <Grid item xs={11}>
                 <SInput
                     name={"name"}
@@ -61,7 +94,6 @@ const TodoForm: React.FC = () => {
                     label={"type"}
                     value={formik.values.type}
                     onChange={formik.handleChange}
-
                 />
             </Grid>
             <Grid item xs={11}>
@@ -71,7 +103,6 @@ const TodoForm: React.FC = () => {
                     label={"description"}
                     value={formik.values.description}
                     onChange={formik.handleChange}
-
                 />
             </Grid>
             <Grid item xs={11}>

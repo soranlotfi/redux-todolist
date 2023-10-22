@@ -1,28 +1,35 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {TodoInterFace, TodoState} from "../../Types/App/slices.type.ts";
 
-interface TodoState {
-    name: string,
-    type: string,
-    description: string
+
+const initialState: TodoState = {
+    todoList: []
 }
-
-const initialState: TodoState[] = [
-    {
-    name: "hello",
-    type: "hi",
-    description: "by",
-}
-]
-
 const TodoSlice = createSlice({
     name: "todo",
     initialState,
     reducers: {
-        AddTodo(state,action:PayloadAction<TodoState>){
-            state.push(action.payload)
+        AddTodo: (state, action: PayloadAction<TodoInterFace>) => {
+            return {
+                ...state,
+                todoList: [...state.todoList, action.payload],
+            };
+        },
+        HandleEdit: (state, action: PayloadAction<TodoInterFace[]>) => {
+            return {
+                ...state,
+                todoList: action.payload
+            }
+        },
+        EditTodo: (state, action: PayloadAction<TodoInterFace[]>) => {
+            return {
+                ...state,
+                todoList: action.payload
+            }
         }
+
     }
 })
 
-export const {AddTodo} =TodoSlice.actions
-export default TodoSlice
+export const {AddTodo, HandleEdit,EditTodo} = TodoSlice.actions
+export default TodoSlice.reducer

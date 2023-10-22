@@ -10,7 +10,8 @@ export interface ISButton {
     textAlign?: string,
     padding?: string,
     margin?: string,
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    onClick?:React.MouseEventHandler<HTMLButtonElement>
 
 }
 

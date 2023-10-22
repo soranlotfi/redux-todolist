@@ -26,7 +26,7 @@ const HighLayout: React.FC<HighLayOutProps> = ({children}) => {
                 {children}
             </Grid>
             {/*    footer*/}
-            <Grid item container  bgcolor={"purple.500"} p={"1rem"} >
+            <Grid item container  bgcolor={"purple.500"}  >
                 <Grid item xs={12} p={"1rem"} textAlign={"center"}>
                     {
                         iconsPack.filter(icon => icon.type==="socialMedia").map((icon:IconsPackInterface,index:number) =>(
