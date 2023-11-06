@@ -61,13 +61,13 @@ const Todos: React.FC = () => {
                             </Grid>
                         </Grid>
                         <Grid item container xs={2} textAlign={"center"}>
-                            <Grid  item xs={12} textAlign={"center"}>
+                            <Grid item xs={12} textAlign={"center"}>
                                 <SButton onClick={() => handleDelete(todo.id)}>Delete</SButton>
                             </Grid>
-                            <Grid  item xs textAlign={"center"}>
+                            <Grid item xs textAlign={"center"}>
                                 <SButton onClick={() => handleEdit(todo.id)}>Edit</SButton>
                             </Grid>
-                            <Grid  item xs={12} textAlign={"center"}>
+                            <Grid item xs={12} textAlign={"center"}>
                                 <Checkbox
                                     sx={{
                                         color: pink[800],
@@ -76,8 +76,9 @@ const Todos: React.FC = () => {
                                         },
                                     }}
                                     checked={todo.completed}
-                                    onChange={(e)=>Toggeler(e,todo.id)}
-                                    inputProps={{ 'aria-label': 'controlled' }}                                />
+                                    onChange={(e) => Toggeler(e, todo.id)}
+                                    inputProps={{'aria-label': 'controlled'}}
+                                />
                             </Grid>
                         </Grid>
                     </Grid>

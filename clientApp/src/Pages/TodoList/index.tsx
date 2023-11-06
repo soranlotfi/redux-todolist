@@ -4,8 +4,10 @@ import PageLayOut from "../../Components/LayOutContainers/PageLayOut";
 import SBox from "../../Components/SBox/Index.tsx";
 import Todos from "./Components/Todos";
 import TodoForm from "./Components/Form";
+import {useTranslation} from "react-i18next";
 
 const TodoList: React.FC = () => {
+    const {t} = useTranslation('common')
     return (
         <PageLayOut>
             <SBox width={"100%"} height={"100%"}
@@ -19,7 +21,8 @@ const TodoList: React.FC = () => {
                         {/*todo form entery*/}
                         <Grid item container xs={5} bgcolor={"purple.500"} justifyContent={"center"} p={"2rem"}>
                             <Grid item textAlign={"center"}>
-                                <Typography variant={"h1"} color={"white.main"} fontWeight={"bold"}>Add Todo</Typography>
+                                <Typography variant={"h1"} color={"white.main"}
+                                            fontWeight={"bold"}>{t('todolistSection.formTitle')}</Typography>
                             </Grid>
                             <Grid item container>
                                 <TodoForm/>

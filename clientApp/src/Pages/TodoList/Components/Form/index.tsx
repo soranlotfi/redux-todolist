@@ -8,6 +8,7 @@ import {useAppDispatch, useAppSelector} from "../../../../App/hooks.ts";
 import {AddTodo, EditTodo} from "../../../../Features/Todos/TodosSlice.ts";
 import {v4 as uuidv4} from 'uuid';
 import {TodoInterFace} from "../../../../Types/App/slices.type.ts";
+import {useTranslation} from "react-i18next";
 
 interface FormValues {
     name: string;
@@ -41,7 +42,6 @@ const TodoForm: React.FC = () => {
     const todos:TodoInterFace[] = useAppSelector(state => state.todos.todoList)
     const dispatch = useAppDispatch()
     const [edit,setEdit] = useState<boolean>(false)
-
     useEffect(() => {
         todos.map(todo=>{
             if(todo.edit){
@@ -55,7 +55,7 @@ const TodoForm: React.FC = () => {
         const uuid = uuidv4()
         const editedTodos: TodoInterFace[] = todos.map(todo => {
             if (todo.edit) {
-                return {...todo, name: values.name, type: values.type, description: values.description, edit: false}
+                return {...todo, name: values.name, type: values.type, description: values.description,edit: false}
             }
             return {...todo}
         })
@@ -67,11 +67,10 @@ const TodoForm: React.FC = () => {
             edit: false,
             id: uuid
         }
-        console.log(edit)
         if (edit) {
             dispatch(EditTodo(editedTodos))
+            setEdit(false)
         } else {
-            console.log("adding")
             dispatch(AddTodo(todo))
         }
         formik.handleReset({})
@@ -83,6 +82,8 @@ const TodoForm: React.FC = () => {
         onSubmit: handleSubmit,
     })
 
+    const {t} = useTranslation('common')
+
     return (
         <Grid item container role={"form"} onSubmit={formik.handleSubmit} component={"form"} justifyContent={"center"}
               alignItems={"center"} rowSpacing={3} p={"2rem"}>
@@ -90,7 +91,7 @@ const TodoForm: React.FC = () => {
                 <SInput
                     name={"name"}
                     id={"name"}
-                    label={"name"}
+                    label={t('todolistSection.name')}
                     value={formik.values.name}
                     onChange={formik.handleChange}
                 />
@@ -99,7 +100,7 @@ const TodoForm: React.FC = () => {
                 <SInput
                     name={"type"}
                     id={"type"}
-                    label={"type"}
+                    label={t('todolistSection.type')}
                     value={formik.values.type}
                     onChange={formik.handleChange}
                 />
@@ -108,14 +109,14 @@ const TodoForm: React.FC = () => {
                 <SInput
                     name={"description"}
                     id={"description"}
-                    label={"description"}
+                    label={t('todolistSection.description')}
                     value={formik.values.description}
                     onChange={formik.handleChange}
                 />
             </Grid>
             <Grid item xs={11}>
                 <SButton width={"100%"} padding={"1rem 0"} bgcolor={"green"} color={"white"}
-                         type={"submit"}>Submit</SButton>
+                         type={"submit"}>{t('todolistSection.submit')}</SButton>
             </Grid>
         </Grid>
     )

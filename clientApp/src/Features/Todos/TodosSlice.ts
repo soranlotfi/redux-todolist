@@ -23,7 +23,6 @@ const TodoSlice = createSlice({
             return {...state, todoList: action.payload}
         },
         ToggleTodo: (state, action: PayloadAction<TodoInterFace[]>) => {
-            console.log(action.payload)
             return {...state, todoList: action.payload}
         }
 

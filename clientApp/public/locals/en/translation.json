@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "homepage" : "Home" ,
+    "TodoListSection" : "TodoList"
+  },
+  "mainPage": {
+    "title": "A Simple TodoList App",
+    "caption": "This App Helps you to manage your daily works",
+    "designer": "Designed By Soran Lotfi"
+  },
+  "todolistSection": {
+    "formTitle": "Add Todo",
+    "name": "name",
+    "type": "type",
+    "description": "description",
+    "submit": "submit"
+  }
+}
